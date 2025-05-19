@@ -36,8 +36,8 @@ const Container = styled.div`
 const ArticleCard = ({props}) => {
     return (
         <Container>
-            {/*<p>{props.article_title}</p>*/}
-            <p>Hello Daily Bruin!</p>
+            <p>{props.article_title}</p>
+            {/* <p>Hello Daily Bruin!</p> */}
         </Container>
     );
 };
