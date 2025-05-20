@@ -6,6 +6,8 @@ import { isMobile } from 'react-device-detect';
 import DesktopArticleGrid from "./components/DesktopArticleGrid";
 import MobileArticleGrid from "./components/MobileArticleGrid";
 import Landing from "./components/Landing";
+import EditorLetter from "./components/EditorLetter";
+
 
 function App() {
   const [ data, setData ] = useState(null);
@@ -20,6 +22,7 @@ function App() {
     <div className="App">
       <Header/>
       <Landing/>
+      <EditorLetter editor_letter={data.editor_letter}/>
       {isMobile ? ( 
           <MobileArticleGrid articles={data.articles} />
         ) : (

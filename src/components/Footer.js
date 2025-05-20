@@ -3,13 +3,16 @@ import insta from '../images/socials/insta.svg'
 import twitter from '../images/socials/twitter.svg'
 import tiktok from '../images/socials/tiktok.svg'
 import email from '../images/socials/email.svg'
+import Background from '../images/FooterBackground.png';
 
 import styled from 'styled-components'
 import { mediaQueries } from '../shared/config';
 
 
 const Container = styled.div`
-	background-color: black;
+	background: url(${Background});
+  background-repeat: no-repeat;
+  background-size: cover;
 	height: auto;
 	color: white;
 	padding: 60px 0 10px 0;
@@ -50,7 +53,7 @@ const Footer = () => {
           <a href="https://www.twitter.com/dailybruin" target="_blank" rel="noreferrer"><img src={twitter} alt=""/></a>
           <a href="https://www.tiktok.com/@dailybruin" target="_blank" rel="noreferrer"><img src={tiktok} alt=""/></a>
           <a href="http://eepurl.com/cFEiZX" target="_blank" rel="noreferrer"><img src={email} alt=""/></a>
-          <p>Built with Suzy’s ♥ in Kerckhoff 118 by [developers]. Designed by [designers].</p>
+          <p>Built with Suzy’s ♥ in Kerckhoff 118 by Jennifer Lee, Evelyn Cho, and Sakshi Thoutireddy. Designed by Katie Azuma. Illustrated by Helen Juwon Park.</p>
         </Socials>
     </Container>
     )
