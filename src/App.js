@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import { isMobile } from 'react-device-detect';
 import DesktopArticleGrid from "./components/DesktopArticleGrid";
 import MobileArticleGrid from "./components/MobileArticleGrid";
+import Landing from "./components/Landing";
 
 function App() {
   const [ data, setData ] = useState(null);
@@ -18,6 +19,7 @@ function App() {
   return data && (
     <div className="App">
       <Header/>
+      <Landing/>
       {isMobile ? ( 
           <MobileArticleGrid articles={data.articles} />
         ) : (
