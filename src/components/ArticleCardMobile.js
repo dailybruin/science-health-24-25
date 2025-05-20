@@ -1,18 +1,10 @@
 import styled from 'styled-components';
-import emailImage from '../images/socials/email.svg'; // temporary testing image
+import emailImage from '../images/socials/fb.svg'; // TEMP test image
 
 const Wrapper = styled.div`
-  width: 40vw;
-  height: 25vw;
-  margin: 1.5%;
-  margin-left: 7%;
-
-  @media (max-width: 480px) {
-    width: 75vw;
-    height: 50vw;
-    margin-left: 0%;
-    margin-top: 20%;
-  }
+  width: 75vw;
+  height: 50vw;
+  margin: 3vh 0;
 `;
 
 const Container = styled.div`
@@ -24,11 +16,10 @@ const Container = styled.div`
   -webkit-backdrop-filter: blur(12px);
   border: 1.5px solid rgba(255, 255, 255, 0.3);
   color: white;
-  padding: 3vh 3.5vh 2vh 3.5vh; 
+  padding: 3vh 4vw;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* aligning itmes to th e top */
-  text-decoration: none;
+  justify-content: flex-start;
   background-size: cover;
   background-position: center;
   transition: background-image 0.3s ease;
@@ -40,31 +31,23 @@ const Container = styled.div`
 
 const Title = styled.h2`
   font-family: 'Georgia', serif;
-  font-size: 2.7vw;
+  font-size: 5.5vw;
   font-weight: bold;
   margin: 0;
-  line-height: 1.4;
+  line-height: 1.3;
   text-align: left;
-
-  @media (max-width: 480px) {
-    font-size: 6vw;
-  }
 `;
 
 const Byline = styled.p`
   font-family: 'Arial', sans-serif;
-  font-size: 2vw;
+  font-size: 3.5vw;
   margin-top: 1vh;
   margin-bottom: 0;
-  line-height: 1.5;
   text-align: left;
-
-  @media (max-width: 480px) {
-    font-size: 4vw;
-  }
+  line-height: 1.4;
 `;
 
-const ArticleCard = ({ props }) => {
+const ArticleCardMobile = ({ props }) => {
   return (
     <Wrapper>
       <a
@@ -73,7 +56,7 @@ const ArticleCard = ({ props }) => {
         rel="noopener noreferrer"
         style={{ textDecoration: 'none' }}
       >
-        <Container $img={props.article_image || emailImage}> {/* temporary testing image, originally props.article_img */}
+        <Container $img={emailImage}>
           <Title>{props.article_title}</Title>
           <Byline>{props.article_byline}</Byline>
         </Container>
@@ -82,4 +65,4 @@ const ArticleCard = ({ props }) => {
   );
 };
 
-export default ArticleCard;
+export default ArticleCardMobile;

@@ -1,4 +1,4 @@
-import ArticleCard from './ArticleCard';
+import MobileArticleCard from './ArticleCardMobile';
 import styled from 'styled-components';
 import backgroundImage from '../images/science-health-2025-background.png'
 
@@ -35,7 +35,7 @@ const MobileArticleGrid = ({ articles }) => {
             <Articles>
                 {articles.map((article, index) => (
                     <ArticleCardContainer key={index}>
-                        <ArticleCard props={article} />
+                        <MobileArticleCard props={article} />
                     </ArticleCardContainer>
                 ))}
             </Articles>
