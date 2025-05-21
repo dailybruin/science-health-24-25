@@ -43,7 +43,7 @@ const Container = styled.div`
 `;
 
 const Content = styled.div`
-  transition: opacity; // wrapping title and byline in content styled component so that on hover, the text doesn't show
+  // wrapping title and byline in content styled component so that on hover, the text doesn't show
 `;
 
 const Title = styled.h2`
