@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import emailImage from '../images/socials/email.svg'; // temporary testing image
+import emailImage from '../images/socials/email.svg'; // fallback image
 
 const Wrapper = styled.div`
   width: 40vw;
@@ -24,18 +24,26 @@ const Container = styled.div`
   -webkit-backdrop-filter: blur(12px);
   border: 1.5px solid rgba(255, 255, 255, 0.3);
   color: white;
-  padding: 3vh 3.5vh 2vh 3.5vh; 
+  padding: 3vh 3.5vh 2vh 3.5vh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* aligning itmes to th e top */
-  text-decoration: none;
+  justify-content: flex-start;
   background-size: cover;
   background-position: center;
-  transition: background-image 0.3s ease;
+  position: relative;
+  transition: background-image 0.1s ease;
 
   &:hover {
     background-image: url(${({ $img }) => $img});
   }
+
+  &:hover > div {
+    opacity: 0; // on hover, no title/byline text
+  }
+`;
+
+const Content = styled.div`
+  transition: opacity; // wrapping title and byline in content styled component so that on hover, the text doesn't show
 `;
 
 const Title = styled.h2`
@@ -73,9 +81,11 @@ const ArticleCard = ({ props }) => {
         rel="noopener noreferrer"
         style={{ textDecoration: 'none' }}
       >
-        <Container $img={props.article_image || emailImage}> {/* temporary testing image, originally props.article_img */}
-          <Title>{props.article_title}</Title>
-          <Byline>{props.article_byline}</Byline>
+        <Container $img={props.article_image || emailImage}>
+          <Content>
+            <Title>{props.article_title}</Title>
+            <Byline>{props.article_byline}</Byline>
+          </Content>
         </Container>
       </a>
     </Wrapper>

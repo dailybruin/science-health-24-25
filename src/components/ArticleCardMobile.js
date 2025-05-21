@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { useEffect } from 'react';
 import emailImage from '../images/socials/fb.svg'; // TEMP test image
 
 const Wrapper = styled.div`
@@ -8,25 +9,45 @@ const Wrapper = styled.div`
 `;
 
 const Container = styled.div`
+  position: relative;
   border-radius: 4vh;
   width: 100%;
   height: 100%;
+  overflow: hidden;
   background: rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1.5px solid rgba(255, 255, 255, 0.3);
+
+  &:hover .hover-bg {
+    opacity: 1;
+  }
+
+  &:hover .text-content {
+    opacity: 0;
+  }
+`;
+
+const BackgroundImage = styled.div`
+  position: absolute;
+  inset: 0;
+  background-image: url(${({ $img }) => $img});
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity;
+  z-index: 1;
+`;
+
+const Content = styled.div`
+  position: relative;
+  z-index: 2;
   color: white;
   padding: 3vh 4vw;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  background-size: cover;
-  background-position: center;
-  transition: background-image 0.3s ease;
-
-  &:hover {
-    background-image: url(${({ $img }) => $img});
-  }
+  transition: opacity;
 `;
 
 const Title = styled.h2`
@@ -48,6 +69,14 @@ const Byline = styled.p`
 `;
 
 const ArticleCardMobile = ({ props }) => {
+  const imageUrl = props.article_image || emailImage;
+
+  // Preload image to avoid lag
+  useEffect(() => {
+    const img = new Image();
+    img.src = imageUrl;
+  }, [imageUrl]);
+
   return (
     <Wrapper>
       <a
@@ -56,9 +85,12 @@ const ArticleCardMobile = ({ props }) => {
         rel="noopener noreferrer"
         style={{ textDecoration: 'none' }}
       >
-        <Container $img={emailImage}>
-          <Title>{props.article_title}</Title>
-          <Byline>{props.article_byline}</Byline>
+        <Container>
+          <BackgroundImage className="hover-bg" $img={imageUrl} />
+          <Content className="text-content">
+            <Title>{props.article_title}</Title>
+            <Byline>{props.article_byline}</Byline>
+          </Content>
         </Container>
       </a>
     </Wrapper>
