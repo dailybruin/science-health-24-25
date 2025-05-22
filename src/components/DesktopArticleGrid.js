@@ -7,7 +7,7 @@ const GridContainer = styled.div`
 	height: auto;
 	color: #F0E8CE;
     text-align: center;
-    padding-top: 10%;
+    padding-top: 20%;
     position: relative;
     background-image: url(${backgroundImage});
     background-repeat: no-repeat;
@@ -25,11 +25,12 @@ const Articles = styled.div`
     }
 
     & > div:nth-child(even) {
-        margin-top: 25em;
+        margin-top: 29em;
     }
 
     & > div:nth-child(odd) {
         left: 2em;
+        margin-top: 2em;
     }
 `;
 
