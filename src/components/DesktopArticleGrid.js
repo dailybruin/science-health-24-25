@@ -8,6 +8,7 @@ const GridContainer = styled.div`
 	color: #F0E8CE;
     text-align: center;
     padding-top: 20%;
+    padding-bottom: 10%;
     position: relative;
     background-image: url(${backgroundImage});
     background-repeat: no-repeat;

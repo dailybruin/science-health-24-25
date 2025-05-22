@@ -6,9 +6,12 @@ import { mediaQueries } from "../shared/config";
 const OuterContainer = styled.div`
     background: url(${Background}) no-repeat center center;
     width: 100%; 
-    height: 100%;
-    min-height: 100vh;
-    background-size: contain;
+    height: fit-content;
+    padding: 25em 0;
+    background-size: cover;
+    ${mediaQueries.mobile} {
+      padding: 15em 0;
+    }
 `;
 
 
