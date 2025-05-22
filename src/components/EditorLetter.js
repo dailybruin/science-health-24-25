@@ -27,7 +27,7 @@ const Container = styled.div`
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    margin-left: 30%;
+    margin-left: 25%;
 
   ${mediaQueries.mobile} {
     width: 70%;

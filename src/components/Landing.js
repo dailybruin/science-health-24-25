@@ -4,20 +4,27 @@ import SciHealthLanding from "../images/SciHealthLanding.gif";
 
 const Container = styled.div`
   width: 100%;
-  height: 850px;
+  height: 80vh;
   display: flex;
   position: relative;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: url(${SciHealthLanding}) no-repeat center center;
-  background-size: cover;
   background-color: black;
+`;
+
+const Background = styled.img`
+  width: 100%;
+  height: auto;
+  max-height: 100vh;
+  object-fit: contain;
 `;
 
 const Landing = () => {
   return (
-    <Container/>
+    <Container>
+      <Background src={SciHealthLanding} alt="SciHealth Landing" />
+    </Container>
   );
 };
 
